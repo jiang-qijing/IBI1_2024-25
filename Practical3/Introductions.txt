@@ -1,5 +1,4 @@
-Hello, my name is Rob.
-I like drinking tea and eating chocolate biscuits.
-I am enjoying teaching IBI1 in person again 
-I am happy that I can push my repo from Visual Studio Code to GitHub
-已阅。
+Hello, my name is Jiang Qijing.
+I like drinking milktea and eating cakes.
+I am enjoying learning IBI1 in person.
+I am happy that I can push my repo from Visual Studio Code to GitHub.
