@@ -6,18 +6,18 @@ with open('/Users/jiangqijing/Desktop/IBI               IBMS8011 Introduction to
 
     tata=r'TATA[AT]A[AT]'
 
-    lines=re.sub(r'_mRNA.+?]','',lines)
-    lines=re.sub(r' cdna.+?]','',lines)     
+        
     lines_merged=re.sub('\n','',lines)
     lines_processed=re.sub(r'(?=>)','\n',lines_merged)
+    lines_processed=re.sub(r'\n','',lines_processed,count=1)
     lines_processed=lines_processed.split('\n')
 
-    gene=[]
+    tata_genes=[]
     for line in lines_processed:
         if re.search(tata,line):
-            gene.append(line)
+            gene_names=re.findall(r'gene:(\S+)',line)
+            gene_sequences=re.findall(r'](.+)',line)
+            tata_genes.append([gene_names[0],gene_sequences[0]])
         
-    gene_str='\n'.join(gene)
-    lines_splited=re.sub(r'>(.{7})',r'>\1\n',gene_str)
-
-    output.write(lines_splited)
+    for line in tata_genes:
+        output.write(line[0]+'\n'+line[1]+'\n')

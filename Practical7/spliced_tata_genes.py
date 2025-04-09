@@ -12,28 +12,23 @@ else:
         splice_donor=splice_combination[0:2]
         splice_acceptor=splice_combination[2:4]
            
-        lines=re.sub(r'_mRNA.+?]','',lines)
-        lines=re.sub(r' cdna.+?]','',lines)     
         lines_merged=re.sub('\n','',lines)
         lines_processed=re.sub(r'(?=>)','\n',lines_merged)
-        lines_splited=re.sub(r'>(.{7})',r'>\1\n',lines_processed)
-        lines_splited=re.sub(r'^\n','',lines_splited)
-        lines_splited=lines_splited.split('\n')
-        gene=[]
+        lines_processed=re.sub(r'\n','',lines_processed,count=1)
+        lines_processed=lines_processed.split('\n')
+        spliced_tata_genes=[]
 
-        for line in lines_splited:
-                if line[0]=='>':
-                    gene_names=line[0:8]
-                else:
-                    if re.findall(rf'{splice_donor}.+{splice_acceptor}',line):
-                        sequences=re.findall(rf'{splice_donor}.+{splice_acceptor}',line)
-                        sequences=str(sequences)
-                        if re.findall(tata,sequences):
-                            count=len(re.findall(tata,sequences))
-                            count=str(count)
-                            gene.append([gene_names,count,sequences])
+        for line in lines_processed:
+                if re.findall(rf'{splice_donor}.+{splice_acceptor}',line):
+                    spliced_sequences=re.findall(rf'{splice_donor}.+{splice_acceptor}',line)
+                    if re.findall(tata,spliced_sequences[0]):
+                        count=len(re.findall(tata,spliced_sequences[0]))
+                        gene_names=re.findall(r'gene:(\S+)',line)
+                        gene_sequences=re.findall(r'](.+)',line)
+                        spliced_tata_genes.append([gene_names[0],str(count),gene_sequences[0]])
                             
-        for line in gene:
+        for line in spliced_tata_genes:
             output.write(line[0]+' tata_count:'+line[1]+'\n'+line[2]+'\n')
+                         
 
     
