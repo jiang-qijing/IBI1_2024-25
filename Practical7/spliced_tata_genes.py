@@ -1,4 +1,8 @@
 import re
+import datetime
+
+start_time=datetime.datetime.now()
+print('Start time: ',start_time)
 
 with open('/Users/jiangqijing/Desktop/IBI               IBMS8011 Introduction to Biomedical Informatics/Practical/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa','r') as input_file:
     lines=input_file.read()
@@ -29,6 +33,9 @@ else:
                             
         for line in spliced_tata_genes:
             output.write(line[0]+' tata_count:'+line[1]+'\n'+line[2]+'\n')
-                         
+
+end_time=datetime.datetime.now()
+print('End time: ',end_time)
+print('Total duration: ',end_time-start_time)                    
 
     
