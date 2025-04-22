@@ -1,0 +1,7 @@
+Question: Plot a boxplot of DALYs across countries in 1990.
+
+Line number in dalys.py:
+26-30
+
+Discussion:
+The boxplot shows the distribution of DALYs across all countries in 1990. We can observe the median, interquartile range, and any outliers. This visualization helps to understand the overall spread and identify countries with unusually high or low disease burden that year.
