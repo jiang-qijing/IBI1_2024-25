@@ -20,4 +20,5 @@ plt.title('Programming language popularity')#Set the title of the bar chart to '
 plt.xlabel('languages')#Set the label for the x-axis to 'languages'
 plt.ylabel('percentages')#Set the label for the y-axis to 'percentages'
 plt.show()#Display the bar chart
-print(popularity["JavaScript"])#Print the popularity percentage of 'JavaScript' by accessing its value in the 'popularity' dictionary
+javascript_popularity=popularity["JavaScript"]#Define the popularity percentage of 'JavaScript'
+print(javascript_popularity)#Print the popularity percentage of 'JavaScript' by accessing its value in the 'popularity' dictionary
