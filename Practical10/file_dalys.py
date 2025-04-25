@@ -6,7 +6,14 @@ import numpy as np
 os.chdir('/Users/jiangqijing/Desktop/IBI               IBMS8011 Introduction to Biomedical Informatics/Practical/IBI1_2024-25/Practical10')
 dalys_data=pd.read_csv('dalys-rate-from-all-causes.csv')
 print(dalys_data.iloc[0:10,2])
-print(dalys_data.loc[dalys_data['Year']==1990,'DALYs'])
+
+dalys_1990=[]
+for i in dalys_data['Year']:
+    if i==1990:
+        dalys_1990.append(True)
+    else:
+        dalys_1990.append(False)
+print(dalys_data.loc[dalys_1990,'DALYs'])
 
 uk=dalys_data.loc[dalys_data.Entity=='United Kingdom',['DALYs','Year']]
 fr=dalys_data.loc[dalys_data.Entity=='France',['DALYs','Year']]
