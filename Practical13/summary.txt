@@ -1,0 +1,17 @@
+The length of the human SOD2 protein: 222.
+The subucellular localisation of the human SOD2 protein: mitochondrion matrix.
+The range of percentage identities in the reported online BLAST results: 58.1%-100%.
+
+Alignment of Human SODM protein sequence and Mouse SODM protein sequence: 
+BLOSUM62 score is:  1097
+Percentage identity is:  90.09009009009009 %
+
+Alignment of Human SODM protein sequence and random protein sequence: 
+BLOSUM62 score is:  -295
+Percentage identity is:  1.3513513513513513 %
+
+Alignment of Mouse SODM protein sequence and random protein sequence: 
+BLOSUM62 score is:  -288
+Percentage identity is:  1.8018018018018018 %
+
+Human SODM protein sequence and Mouse SODM protein sequence are most closely related, as evidenced by the highest BLOSUM62 alignment score and percentage identity among the three comparisons.
