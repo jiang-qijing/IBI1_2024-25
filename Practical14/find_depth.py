@@ -37,19 +37,18 @@ class GOHandler(xml.sax.ContentHandler):
             self.current_namespace=''
             self.current_name=''
             self.is_a_count=0
-    def characters(self,content):
-        if self.current_tag=='namespace':
-            self.current_namespace+=content
-        elif self.current_tag=='name':
-            self.current_name+=content
         elif self.current_tag=='is_a':
             self.is_a_count+=1
+    def characters(self,content):
+        if self.current_tag=='namespace':
+            self.current_namespace+=content.strip()
+        elif self.current_tag=='name':
+            self.current_name+=content.strip()
     def endElement(self,tag):
         if tag=='term':
             if self.current_namespace in self.GO_terms:
                 if self.is_a_count>self.GO_terms[self.current_namespace]['count']:
                     self.GO_terms[self.current_namespace]={'term':self.current_name,'count':self.is_a_count}
-        self.current_tag=""
 start=datetime.now()
 parser=xml.sax.make_parser()
 parser.setFeature(xml.sax.handler.feature_namespaces,0)
