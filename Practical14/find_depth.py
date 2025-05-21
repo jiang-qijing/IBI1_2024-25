@@ -42,7 +42,7 @@ class GOHandler(xml.sax.ContentHandler):
             self.current_namespace=''
             self.current_name=''
             self.is_a_count=0
-        elif self.current_tag=='is_a':
+        elif tag=='is_a':
             self.is_a_count+=1
     def characters(self,content):
         if self.current_tag=='namespace':
