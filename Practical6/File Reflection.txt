@@ -1,0 +1,7 @@
+This practical helped me understand how infections can be modeled using the SIR framework. Writing the stochastic version made me realize how randomness affects disease spread and why different runs give different results.
+
+I found the basic model easy to implement, but the spatial SIR model was more challenging—especially handling neighbors and updating the grid. It took some trial and error, but I learned a lot about arrays and logic in Python.
+
+The vaccination part was interesting too. It showed me how even partial vaccination can reduce infections, making the idea of herd immunity more concrete.
+
+Overall, this practical improved both my coding and understanding of epidemiological models. I enjoyed it, especially seeing the plots change each time.
